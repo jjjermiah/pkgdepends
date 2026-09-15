@@ -29,18 +29,21 @@ package manager, see [pak](https://github.com/r-lib/pak).
 Install the package with:
 
 ``` r
+
 install.packages("pkgdepends")
 ```
 
 If you need the development version, install it with
 
 ``` r
+
 pak::pak("r-lib/pkgdepends")
 ```
 
 # Usage
 
 ``` r
+
 library(pkgdepends)
 ```
 
@@ -67,21 +70,24 @@ for details.
 Dependencies of the development version of the cli package:
 
 ``` r
+
 pd <- new_pkg_deps("r-lib/pkgcache")
 pd$solve()
 pd$draw()
 ```
 
-    ## ✔ Updated metadata database: 3.33 MB in 8 files.
+
+    ## ✔ Updated metadata database: 3.77 MB in 8 files.
     ## ✔ Updating metadata database ... done
     ## r-lib/pkgcache 2.2.5.9000 [new][bld][cmp][dl] (unknown size)
-    ## ├─callr 3.7.6 [new][bld][dl] (104.36 kB)
-    ## │ ├─processx 3.8.7 [new][bld][cmp][dl] (165.19 kB)
-    ## │ │ ├─ps 1.9.2 [new][bld][cmp][dl] (167.92 kB)
+    ## ├─callr 3.8.0 [new][bld][dl] (113.26 kB)
+    ## │ ├─otel 0.2.0 [new][bld][dl] (72.58 kB)
+    ## │ ├─processx 3.9.0 [new][bld][cmp][dl] (195.28 kB)
+    ## │ │ ├─ps 1.9.3 [new][bld][cmp][dl] (172.43 kB)
     ## │ │ └─R6 2.6.1 [new][bld][dl] (64.51 kB)
     ## │ └─R6
-    ## ├─cli 3.6.5 [new][bld][cmp][dl] (640.24 kB)
-    ## ├─curl 7.0.0 [new][bld][cmp][dl] (731.11 kB)
+    ## ├─cli 3.6.6 [new][bld][cmp][dl] (644.13 kB)
+    ## ├─curl 8.0.0 [new][bld][cmp][dl] (733.54 kB)
     ## ├─filelock 1.0.3 [new][bld][cmp][dl] (15.44 kB)
     ## ├─jsonlite 2.0.0 [new][bld][cmp][dl] (1.06 MB)
     ## ├─processx
@@ -98,13 +104,15 @@ class for details.
 Downloading all dependencies of a package:
 
 ``` r
+
 pdl <- new_pkg_download_proposal("r-lib/cli")
 pdl$resolve()
 pdl$download()
 ```
 
+
     ## ℹ Getting 1 pkg with unknown size
-    ## ✔ Got cli 3.6.5.9000 (source) (852.59 kB)
+    ## ✔ Got cli 3.6.6.9000 (source) (870.20 kB)
 
 See the
 [`pkg_download_proposal`](https://r-lib.github.io/pkgdepends/reference/pkg_download_proposal.html)
@@ -115,6 +123,7 @@ class for details.
 Installing or updating a set of package:
 
 ``` r
+
 lib <- tempfile()
 dir.create(lib)
 pdi <- new_pkg_installation_proposal(
@@ -126,14 +135,15 @@ pdi$download()
 pdi$install()
 ```
 
+
     ## ℹ Getting 1 pkg with unknown size
-    ## ✔ Cached copy of cli 3.6.5.9000 (source) is the latest build
-    ## ℹ Packaging cli 3.6.5.9000
-    ## ✔ Packaged cli 3.6.5.9000 (1.8s)
-    ## ℹ Building cli 3.6.5.9000
-    ## ✔ Built cli 3.6.5.9000 (9.3s)
-    ## ✔ Installed cli 3.6.5.9000 (github::r-lib/cli@eef82e9) (37ms)
-    ## ✔ Summary:   1 new  in 9.3s
+    ## ✔ Cached copy of cli 3.6.6.9000 (source) is the latest build
+    ## ℹ Packaging cli 3.6.6.9000
+    ## ✔ Packaged cli 3.6.6.9000 (1.4s)
+    ## ℹ Building cli 3.6.6.9000
+    ## ✔ Built cli 3.6.6.9000 (7.8s)
+    ## ✔ Installed cli 3.6.6.9000 (github::r-lib/cli@e42bb79) (30ms)
+    ## ✔ Summary:   1 new  in 7.8s
 
 ## Dependency resolution
 

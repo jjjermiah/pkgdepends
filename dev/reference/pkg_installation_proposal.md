@@ -21,8 +21,6 @@ new_pkg_installation_proposal(refs, config = list(), ...)
 
   Configuration options, a named list. See
   ['Configuration'](https://r-lib.github.io/pkgdepends/dev/reference/pkg_config.md).
-  If it does not include `library`, then `.libPaths()[1]` is added as
-  `library`.
 
 - ...:
 
@@ -63,7 +61,7 @@ Typical workflow to install a set of packages:
 
 ### Public methods
 
-- [`pkg_installation_proposal$new()`](#method-pkg_installation_proposal-new)
+- [`pkg_installation_proposal$new()`](#method-pkg_installation_proposal-initialize)
 
 - [`pkg_installation_proposal$get_refs()`](#method-pkg_installation_proposal-get_refs)
 
@@ -117,7 +115,7 @@ Typical workflow to install a set of packages:
 
 ------------------------------------------------------------------------
 
-### Method `new()`
+### `pkg_installation_proposal$new()`
 
 Create a new `pkg_installation_proposal` object. Consider using
 `new_pkg_installation_proposal()` instead of calling the constructor
@@ -162,7 +160,7 @@ files.
 
 ------------------------------------------------------------------------
 
-### Method `get_refs()`
+### `pkg_installation_proposal$get_refs()`
 
 The package refs that were used to create the
 `pkg_installation_proposal` object.
@@ -178,7 +176,7 @@ A character vector of package refs that were used to create the
 
 ------------------------------------------------------------------------
 
-### Method `get_config()`
+### `pkg_installation_proposal$get_config()`
 
 Configuration options for the `pkg_installation_proposal` object. See
 ['Configuration'](https://r-lib.github.io/pkgdepends/dev/reference/pkg_config.md)
@@ -196,7 +194,7 @@ for the configuration options.
 
 ------------------------------------------------------------------------
 
-### Method `resolve()`
+### `pkg_installation_proposal$resolve()`
 
 Resolve the dependencies of the specified package references. This
 usually means downloading metadata from CRAN and Bioconductor, unless
@@ -215,7 +213,6 @@ The `pkg_installation_proposal` object, invisibly.
 
 #### Examples
 
-    \dontrun{
     pdi <- new_pkg_installation_proposal(
       "pak",
       config = list(library = tempfile())
@@ -223,11 +220,10 @@ The `pkg_installation_proposal` object, invisibly.
 
     pdi$resolve()
     pdi$get_resolution()
-    }
 
 ------------------------------------------------------------------------
 
-### Method `async_resolve()`
+### `pkg_installation_proposal$async_resolve()`
 
 The same as [`resolve()`](#method-resolve), but asynchronous. This
 method is for advanced use.
@@ -242,7 +238,7 @@ A deferred value.
 
 ------------------------------------------------------------------------
 
-### Method `get_resolution()`
+### `pkg_installation_proposal$get_resolution()`
 
 Query the result of the dependency resolution. This method can be called
 after [`resolve()`](#method-resolve) has completed.
@@ -261,18 +257,16 @@ for its columns.
 
 #### Examples
 
-    \dontrun{
     pdi <- new_pkg_installation_proposal(
       "r-lib/pkgdepends",
       config = list(library = tempfile())
     )
     pdi$resolve()
     pdi$get_resolution()
-    }
 
 ------------------------------------------------------------------------
 
-### Method `get_solve_policy()`
+### `pkg_installation_proposal$get_solve_policy()`
 
 Returns the current policy of the dependency solver. See ['The
 dependency
@@ -289,7 +283,7 @@ A character vector of length one.
 
 ------------------------------------------------------------------------
 
-### Method `set_solve_policy()`
+### `pkg_installation_proposal$set_solve_policy()`
 
 Set the current policy of the dependency solver. If the object already
 contains a solution and the new policy is different than the old policy,
@@ -309,7 +303,7 @@ for details.
 
 ------------------------------------------------------------------------
 
-### Method [`solve()`](https://rdrr.io/r/base/solve.html)
+### `pkg_installation_proposal$solve()`
 
 Solve the package dependencies. Out of the resolved dependencies, it
 works out a set of packages, that can be installed together to create a
@@ -330,7 +324,6 @@ The `pkg_installation_proposal` object itself, invisibly.
 
 #### Examples
 
-    \dontrun{
     pdi <- new_pkg_installation_proposal(
       "r-lib/pkgdepends",
       config = list(library = tempfile())
@@ -338,11 +331,10 @@ The `pkg_installation_proposal` object itself, invisibly.
     pdi$resolve()
     pdi$solve()
     pdi$get_solution()
-    }
 
 ------------------------------------------------------------------------
 
-### Method `get_solution()`
+### `pkg_installation_proposal$get_solution()`
 
 Returns the solution of the package dependencies.
 
@@ -360,7 +352,6 @@ for details.
 
 #### Examples
 
-    \dontrun{
     pdi <- new_pkg_installation_proposal(
       "r-lib/pkgdepends",
       config = list(library = tempfile())
@@ -368,11 +359,10 @@ for details.
     pdi$resolve()
     pdi$solve()
     pdi$get_solution()
-    }
 
 ------------------------------------------------------------------------
 
-### Method `show_solution()`
+### `pkg_installation_proposal$show_solution()`
 
 Show the solution on the screen.
 
@@ -396,7 +386,6 @@ for details.
 
 #### Examples
 
-    \dontrun{
     pdi <- new_pkg_installation_proposal(
       "r-lib/pkgdepends",
       config = list(library = tempfile())
@@ -405,11 +394,10 @@ for details.
     pdi$solve()
     pdi$get_solution()
     pdi$show_solution()
-    }
 
 ------------------------------------------------------------------------
 
-### Method `get_sysreqs()`
+### `pkg_installation_proposal$get_sysreqs()`
 
 Query and categorize system requirements.
 
@@ -419,7 +407,7 @@ Query and categorize system requirements.
 
 ------------------------------------------------------------------------
 
-### Method `show_sysreqs()`
+### `pkg_installation_proposal$show_sysreqs()`
 
 Show system requirements for the packages in the solution.
 
@@ -429,7 +417,7 @@ Show system requirements for the packages in the solution.
 
 ------------------------------------------------------------------------
 
-### Method `stop_for_solution_error()`
+### `pkg_installation_proposal$stop_for_solution_error()`
 
 Error if the dependency solver failed to find a consistent set of
 packages that can be installed together.
@@ -440,7 +428,6 @@ packages that can be installed together.
 
 #### Examples
 
-    \dontrun{
     # This is an error, because the packages conflict:
     pdi <- new_pkg_installation_proposal(
       c("r-lib/pak", "cran::pak"),
@@ -451,11 +438,10 @@ packages that can be installed together.
     pdi
     # This fails:
     # pdi$stop_for_solution_error()
-    }
 
 ------------------------------------------------------------------------
 
-### Method `create_lockfile()`
+### `pkg_installation_proposal$create_lockfile()`
 
 Create a lock file that contains the information to perform the
 installation later, possibly in another R session.
@@ -494,7 +480,7 @@ caching systems.
 
 ------------------------------------------------------------------------
 
-### Method `draw()`
+### `pkg_installation_proposal$draw()`
 
 Draw a tree of package dependencies. It returns a `tree` object, see
 [`cli::tree()`](https://cli.r-lib.org/reference/tree.html). Printing
@@ -511,7 +497,6 @@ A `tree` object from the cli package, see
 
 #### Examples
 
-    \dontrun{
     pdi <- new_pkg_installation_proposal(
       "pak",
       config = list(library = tempfile())
@@ -519,11 +504,10 @@ A `tree` object from the cli package, see
     pdi$resolve()
     pdi$solve()
     pdi$draw()
-    }
 
 ------------------------------------------------------------------------
 
-### Method `download()`
+### `pkg_installation_proposal$download()`
 
 Download all packages that are part of the solution. It uses the package
 cache in the pkgcache package by default, to avoid downloads if
@@ -539,7 +523,6 @@ The `pkg_installation_proposal` object itself, invisibly.
 
 #### Examples
 
-    \dontrun{
     pdi <- new_pkg_installation_proposal(
       c("r-lib/pak", "cran::pak"),
       config = list(library = tempfile())
@@ -548,11 +531,10 @@ The `pkg_installation_proposal` object itself, invisibly.
     pdi$solve()
     pdi$download()
     pdi$get_downloads()
-    }
 
 ------------------------------------------------------------------------
 
-### Method `async_download()`
+### `pkg_installation_proposal$async_download()`
 
 The same as [`download()`](#method-download), but asynchronous. This
 method is for advanced use.
@@ -567,7 +549,7 @@ A deferred value.
 
 ------------------------------------------------------------------------
 
-### Method `get_downloads()`
+### `pkg_installation_proposal$get_downloads()`
 
 Returns the summary of the package downloads.
 
@@ -585,7 +567,6 @@ for details.
 
 #### Examples
 
-    \dontrun{
     pdi <- new_pkg_installation_proposal(
       c("r-lib/pak", "cran::pak"),
       config = list(library = tempfile())
@@ -594,11 +575,10 @@ for details.
     pdi$solve()
     pdi$download()
     pdi$get_downloads()
-    }
 
 ------------------------------------------------------------------------
 
-### Method `stop_for_download_error()`
+### `pkg_installation_proposal$stop_for_download_error()`
 
 Throw and error if the some of the downloads have failed for the most
 recent [`pkg_installation_proposal$download()`](#method-download) call.
@@ -609,7 +589,7 @@ recent [`pkg_installation_proposal$download()`](#method-download) call.
 
 ------------------------------------------------------------------------
 
-### Method `install()`
+### `pkg_installation_proposal$install()`
 
 Install the downloaded packages. It calls
 [`install_package_plan()`](https://r-lib.github.io/pkgdepends/dev/reference/install_package_plan.md).
@@ -625,7 +605,7 @@ The return value of
 
 ------------------------------------------------------------------------
 
-### Method `install_sysreqs()`
+### `pkg_installation_proposal$install_sysreqs()`
 
 Install system requirements. It does nothing if system requirements are
 turned off. Create an installation plan for the downloaded packages.
@@ -636,7 +616,7 @@ turned off. Create an installation plan for the downloaded packages.
 
 ------------------------------------------------------------------------
 
-### Method `get_install_plan()`
+### `pkg_installation_proposal$get_install_plan()`
 
 #### Usage
 
@@ -650,7 +630,6 @@ for the format.
 
 #### Examples
 
-    \dontrun{
     pdi <- new_pkg_installation_proposal(
       "pak",
       config = list(library = tempfile())
@@ -659,11 +638,10 @@ for the format.
     pdi$solve()
     pdi$download()
     pdi$get_install_plan()
-    }
 
 ------------------------------------------------------------------------
 
-### Method [`format()`](https://rdrr.io/r/base/format.html)
+### `pkg_installation_proposal$format()`
 
 Format a `pkg_installation_proposal` object, typically for printing.
 
@@ -683,7 +661,7 @@ A character vector, each element should be a line in the printout.
 
 ------------------------------------------------------------------------
 
-### Method [`print()`](https://rdrr.io/r/base/print.html)
+### `pkg_installation_proposal$print()`
 
 Prints a `pkg_installation_proposal` object to the screen.
 
@@ -721,7 +699,7 @@ The `pkg_installation_proposal` object itself, invisibly.
 
 ------------------------------------------------------------------------
 
-### Method `clone()`
+### `pkg_installation_proposal$clone()`
 
 The objects of this class are cloneable with this method.
 
@@ -757,7 +735,7 @@ pdi
 pdi <- new_pkg_installation_proposal(
   "r-lib/pkgdepends",
   config = list(library = tempfile()))
-#> ℹ Creating library directory: /tmp/RtmpMWPkgC/file20b036c8f25c
+#> ℹ Creating library directory: /tmp/Rtmpp6hFST/file23515c412ffc
 pdi
 #> <pkg_installation_proposal>
 #> + refs:
@@ -771,7 +749,7 @@ pdi <- new_pkg_installation_proposal(
   "pak",
   config = list(library = tempfile())
 )
-#> ℹ Creating library directory: /tmp/RtmpMWPkgC/file20b0641bff52
+#> ℹ Creating library directory: /tmp/Rtmpp6hFST/file2351549731d4
 pdi$get_config()
 #> # pkg config
 #> ## build_vignettes
@@ -788,7 +766,11 @@ pdi$get_config()
 #> 
 #> ## metadata_cache_dir
 #> <default>
-#> [1] "/tmp/RtmpMWPkgC/file20b06820a2dd"
+#> [1] "/tmp/Rtmpp6hFST/file23515ab486ee"
+#> 
+#> ## configure_args
+#> <default>
+#> character(0)
 #> 
 #> ## platforms
 #> <default>
@@ -801,19 +783,27 @@ pdi$get_config()
 #> 
 #> ## r_versions
 #> <default>
-#> [1] "4.5.3"
+#> [1] "4.6.1"
 #> 
 #> ## cache_dir
 #> <default>
-#> [1] "/tmp/RtmpMWPkgC/file20b07bb92d50"
+#> [1] "/tmp/Rtmpp6hFST/file23512ab50212"
 #> 
 #> ## library
 #> <set>
-#> [1] "/tmp/RtmpMWPkgC/file20b0641bff52"
+#> [1] "/tmp/Rtmpp6hFST/file2351549731d4"
+#> 
+#> ## ignore_dev_library
+#> <default>
+#> [1] TRUE
 #> 
 #> ## metadata_update_after
 #> <default>
 #> Time difference of 24 hours
+#> 
+#> ## sysreqs_update
+#> <default>
+#> [1] TRUE
 #> 
 #> ## include_linkingto
 #> <default>
@@ -822,10 +812,6 @@ pdi$get_config()
 #> ## sysreqs_rspm_repo_id
 #> <default>
 #> [1] "1"
-#> 
-#> ## sysreqs_update
-#> <default>
-#> [1] TRUE
 #> 
 #> ## package_cache_dir
 #> <default>
@@ -850,6 +836,14 @@ pdi$get_config()
 #> ## git_submodules
 #> <default>
 #> [1] FALSE
+#> 
+#> ## configure_vars
+#> <default>
+#> character(0)
+#> 
+#> ## http_retry
+#> <forwarded>
+#> option: pkg_http_retry, envvar: PKG_HTTP_RETRY
 #> 
 #> ## sysreqs_platform
 #> <default>
@@ -884,7 +878,7 @@ pdi <- new_pkg_installation_proposal(
   "r-lib/pkgdepends",
   config = list(library = tempfile())
 )
-#> ℹ Creating library directory: /tmp/RtmpMWPkgC/file20b037f92441
+#> ℹ Creating library directory: /tmp/Rtmpp6hFST/file23515bee2dfe
 pdi$get_solve_policy()
 #> [1] "lazy"
 pdi$set_solve_policy("upgrade")
@@ -894,7 +888,7 @@ pdi <- new_pkg_installation_proposal(
   "r-lib/pkgdepends",
   config = list(library = tempfile())
 )
-#> ℹ Creating library directory: /tmp/RtmpMWPkgC/file20b06c13c93f
+#> ℹ Creating library directory: /tmp/Rtmpp6hFST/file23512834aae9
 pdi$get_solve_policy()
 #> [1] "lazy"
 pdi$set_solve_policy("upgrade")
@@ -905,7 +899,7 @@ pdi <- new_pkg_installation_proposal(
   "pak",
   config = list(library = tempfile())
 )
-#> ℹ Creating library directory: /tmp/RtmpMWPkgC/file20b03a00e00d
+#> ℹ Creating library directory: /tmp/Rtmpp6hFST/file235118e6305a
 pdi
 #> <pkg_installation_proposal>
 #> + refs:
@@ -936,7 +930,7 @@ pdi
 
 pdi$download()
 #> ℹ Getting 1 pkg with unknown size
-#> ✔ Got pak 0.9.2 (x86_64-pc-linux-gnu-ubuntu-24.04) (7.03 MB)
+#> ✔ Got pak 0.11.1 (x86_64-pc-linux-gnu-ubuntu-24.04) (7.91 MB)
 pdi
 #> <pkg_installation_proposal>
 #> + refs:
@@ -953,7 +947,7 @@ pdi
 #> (use `$install()` to install the packages)
 
 ## ------------------------------------------------
-## Method `pkg_installation_proposal$resolve`
+## Method `pkg_installation_proposal$resolve()`
 ## ------------------------------------------------
 
 if (FALSE) { # \dontrun{
@@ -967,7 +961,7 @@ pdi$get_resolution()
 } # }
 
 ## ------------------------------------------------
-## Method `pkg_installation_proposal$get_resolution`
+## Method `pkg_installation_proposal$get_resolution()`
 ## ------------------------------------------------
 
 if (FALSE) { # \dontrun{
@@ -980,7 +974,7 @@ pdi$get_resolution()
 } # }
 
 ## ------------------------------------------------
-## Method `pkg_installation_proposal$solve`
+## Method `pkg_installation_proposal$solve()`
 ## ------------------------------------------------
 
 if (FALSE) { # \dontrun{
@@ -994,7 +988,7 @@ pdi$get_solution()
 } # }
 
 ## ------------------------------------------------
-## Method `pkg_installation_proposal$get_solution`
+## Method `pkg_installation_proposal$get_solution()`
 ## ------------------------------------------------
 
 if (FALSE) { # \dontrun{
@@ -1008,7 +1002,7 @@ pdi$get_solution()
 } # }
 
 ## ------------------------------------------------
-## Method `pkg_installation_proposal$show_solution`
+## Method `pkg_installation_proposal$show_solution()`
 ## ------------------------------------------------
 
 if (FALSE) { # \dontrun{
@@ -1023,7 +1017,7 @@ pdi$show_solution()
 } # }
 
 ## ------------------------------------------------
-## Method `pkg_installation_proposal$stop_for_solution_error`
+## Method `pkg_installation_proposal$stop_for_solution_error()`
 ## ------------------------------------------------
 
 if (FALSE) { # \dontrun{
@@ -1040,7 +1034,7 @@ pdi
 } # }
 
 ## ------------------------------------------------
-## Method `pkg_installation_proposal$draw`
+## Method `pkg_installation_proposal$draw()`
 ## ------------------------------------------------
 
 if (FALSE) { # \dontrun{
@@ -1054,7 +1048,7 @@ pdi$draw()
 } # }
 
 ## ------------------------------------------------
-## Method `pkg_installation_proposal$download`
+## Method `pkg_installation_proposal$download()`
 ## ------------------------------------------------
 
 if (FALSE) { # \dontrun{
@@ -1069,7 +1063,7 @@ pdi$get_downloads()
 } # }
 
 ## ------------------------------------------------
-## Method `pkg_installation_proposal$get_downloads`
+## Method `pkg_installation_proposal$get_downloads()`
 ## ------------------------------------------------
 
 if (FALSE) { # \dontrun{
@@ -1084,7 +1078,7 @@ pdi$get_downloads()
 } # }
 
 ## ------------------------------------------------
-## Method `pkg_installation_proposal$get_install_plan`
+## Method `pkg_installation_proposal$get_install_plan()`
 ## ------------------------------------------------
 
 if (FALSE) { # \dontrun{

@@ -47,6 +47,34 @@ Call `current_config()` to print the current configuration.
   temporary directory within the R session temporary directory, see
   [`base::tempdir()`](https://rdrr.io/r/base/tempfile.html).
 
+- `configure_args`: Extra `--configure-args` to pass to `R CMD INSTALL`
+  when building packages from source. It can be a single string, which
+  is then used for all packages built from source. It can also be a
+  named character vector (or a named list of character vectors) to set
+  configure arguments for individual packages: the names are package
+  names and the values are the corresponding configure arguments.
+  Defaults to the `configure.args` option (see
+  [`base::options()`](https://rdrr.io/r/base/options.html)), for
+  compatibility with
+  [`utils::install.packages()`](https://rdrr.io/r/utils/install.packages.html).
+  The `PKG_CONFIGURE_ARGS` environment variable may be either a single
+  string (used for all packages), or a semicolon separated list of
+  `<package>=<args>` entries to set arguments for individual packages.
+
+- `configure_vars`: Extra `--configure-vars` to pass to `R CMD INSTALL`
+  when building packages from source. It can be a single string, which
+  is then used for all packages built from source. It can also be a
+  named character vector (or a named list of character vectors) to set
+  configure variables for individual packages: the names are package
+  names and the values are the corresponding configure variables.
+  Defaults to the `configure.vars` option (see
+  [`base::options()`](https://rdrr.io/r/base/options.html)), for
+  compatibility with
+  [`utils::install.packages()`](https://rdrr.io/r/utils/install.packages.html).
+  The `PKG_CONFIGURE_VARS` environment variable may be either a single
+  string (used for all packages), or a semicolon separated list of
+  `<package>=<vars>` entries to set variables for individual packages.
+
 - `cran_mirror`: CRAN mirror to use. Defaults to the `repos` option (see
   [`base::options()`](https://rdrr.io/r/base/options.html)), if that's
   not set then `https://cran.rstudio.com`.
@@ -66,11 +94,17 @@ Call `current_config()` to print the current configuration.
   within that directory are updated. If a submodule appears in
   `.Rbuildignore`, then it is skipped.
 
+- `ignore_dev_library`: Whether to ignore library directories called
+  `__dev_lib__`.
+
 - `include_linkingto`: Whether to always include `LinkingTo`
-  dependencies in the solution of and installation, even if they are
+  dependencies in the solution of and installation, even if they are not
   needed because the packages are installed from binaries. This is
   sometimes useful, see e.g. <https://github.com/r-lib/pak/issues/485>
-  for an example use case.
+  for an example use case. It is also needed if a repository (Posit
+  Package Manager typically) might serve a source package instead of a
+  binary, so that the source package can be built, see
+  <https://github.com/r-lib/pak/issues/891>.
 
 - `library`: Package library to install packages to. It is also used for
   already installed packages when considering dependencies in
@@ -173,3 +207,17 @@ Call `current_config()` to print the current configuration.
     available binaries are for `x64` only, like the CRAN Windows
     binaries for R 4.2.x currently. `"both"` is the default for R 4.2.0
     and earlier.
+
+## Forwarded configuration
+
+The following entries are not used directly, they are handled by other
+packages that perform the corresponding requests. They are set via R
+options and environment variables, but, unlike the entries above, they
+cannot be set via the `config` argument, and their option and
+environment variable names may differ from the `pkg.` and `PKG_` naming
+convention.
+
+- `pkg_http_retry` option, `PKG_HTTP_RETRY` environment variable:
+  Whether to retry failed HTTP requests. It can be `TRUE` to retry with
+  the default settings, or `FALSE` to never retry. Defaults to `TRUE`.
+  This entry is handled by pkgcache, which performs all HTTP requests.

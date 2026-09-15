@@ -2,6 +2,81 @@
 
 ## pkgdepends (development version)
 
+- Directly requested base packages are now ignored with a warning
+  ([\#478](https://github.com/r-lib/pkgdepends/issues/478)).
+
+- pkgdepends now skips the system requirements of binary packages that
+  come from a Posit Package Manager `manylinux` repository
+  (<https://github.com/r-lib/pak/issues/815>).
+
+- [`sysreqs_check_installed()`](https://r-lib.github.io/pkgdepends/dev/reference/sysreqs_check_installed.md)
+  and
+  [`sysreqs_fix_installed()`](https://r-lib.github.io/pkgdepends/dev/reference/sysreqs_check_installed.md)
+  now ignore the system requirements of installed self-contained
+  `manylinux` packages.
+
+- pkgdepends now accepts binary packages from a Posit Package Manager
+  `manylinux` repository. pkgcache labels these with a
+  `*-manylinux-<glibc-version>` platform now, and they are OK for any
+  requested Linux platform with the same `cpu-vendor-os` triple.
+
+- Blank lines in `.Rbuildignore` no longer cause all git submodules of a
+  package to be skipped, empty lines are now dropped
+  ([\#480](https://github.com/r-lib/pkgdepends/issues/480)).
+
+- Duplicate system requirement commands (`pre_install` and
+  `post_install`) are now deduplicated
+  (<https://github.com/r-lib/pak/issues/888>).
+
+- New `configure_args` and `configure_vars` configuration options to
+  pass `--configure-args` and `--configure-vars` to `R CMD INSTALL` when
+  building packages from source
+  (<https://github.com/r-lib/pak/issues/788>).
+
+- GitHub remotes now auto-detect an R package in a well-known
+  subdirectory (`pkg-r/`, `r/`, or `R/`) when no `subdir` is given and
+  there is no `DESCRIPTION` at the repository root. This lets
+  multi-language repositories be installed without specifying `subdir`
+  ([\#459](https://github.com/r-lib/pkgdepends/issues/459)).
+
+- Resolving GitHub `@*release` and pull request (`#<number>`) remotes no
+  longer fails for packages that live in the repository root. Closes
+  <https://github.com/r-lib/pak/issues/900>.
+
+- `install_args` coming from a lockfile are no longer overwritten when
+  building packages. The `--no-multiarch` flag needed on some Windows
+  configurations is now added to the existing `install_args` instead of
+  replacing them
+  ([\#472](https://github.com/r-lib/pkgdepends/issues/472)).
+
+- pkgdepends now handles the case when a repository (PPM typically)
+  serves a source package instead of the binary. Such a package is put
+  back into the installation queue as a source package, and its
+  (recursive) hard dependencies are installed before it is built. If a
+  `LinkingTo` dependency needed for the build is missing from the
+  installation plan, pkgdepends now fails with an informative error,
+  suggesting the `include_linkingto` configuration option. The raw
+  dependencies of each package, including `LinkingTo`, are now also
+  recorded in the lockfile (<https://github.com/r-lib/pak/issues/891>).
+
+- Resolution for downloads for a different platform no longer fails with
+  a cryptic error
+  ([\#462](https://github.com/r-lib/pkgdepends/issues/462)).
+
+- The solver no longer silently keeps an installed package as the
+  solution for a direct ref that failed to resolve. E.g. requesting a
+  CRAN package that is not on CRAN but happens to be installed locally
+  from another source. `$solve()` now reports a failed solution and
+  `$download()` raises an error in this case.
+
+- The solver no longer fails when requesting a older version
+  (e.g. `pkg@1.0.0`) of a package that is no longer in the repository
+  (<https://github.com/r-lib/pak/issues/896>).
+
+- Better error message when a requested (standard) package is installed,
+  but the package was removed from the repository
+  (<https://github.com/r-lib/pak/issues/895>).
+
 ## pkgdepends 0.9.1
 
 CRAN release: 2026-04-09
@@ -13,7 +88,7 @@ CRAN release: 2026-04-09
   ([@Fan-iX](https://github.com/Fan-iX),
   [\#455](https://github.com/r-lib/pkgdepends/issues/455)).
 
-- pkgdepends can now consider installed packages in mutliple libraries,
+- pkgdepends can now consider installed packages in multiple libraries,
   when installing packages. Pass a character vector of library path as
   the `library` option.
 
