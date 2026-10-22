@@ -174,7 +174,10 @@ type_cran_resolve_version <- function(
   # mirror's copy.
   repos <- c(config$get("cran-mirror")[[1]], unname(getOption("repos")))
   repos <- repos[!is.na(repos) & nzchar(repos) & repos != "@CRAN@"]
-  repos <- repos[!duplicated(sub("/+$", "", repos))]
+  # Normalize before deduplicating so the archive URLs built below never
+  # contain `//src/contrib`, whether or not the configured repo had a slash.
+  repos <- sub("/+$", "", repos)
+  repos <- unique(repos[nzchar(repos)])
 
   type_cran_resolve_archive(
     remote,
