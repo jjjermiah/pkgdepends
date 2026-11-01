@@ -446,7 +446,7 @@ pd$get_config()
 #> 
 #> ## metadata_cache_dir
 #> <default>
-#> [1] "/tmp/Rtmpp6hFST/file23517219a6c9"
+#> [1] "/tmp/RtmpHilDeL/file23cb512c5b7e"
 #> 
 #> ## configure_args
 #> <default>
@@ -454,7 +454,7 @@ pd$get_config()
 #> 
 #> ## platforms
 #> <default>
-#> [1] "x86_64-pc-linux-gnu-ubuntu-24.04"
+#> [1] "x86_64-pc-linux-gnu-ubuntu-26.04"
 #> [2] "source"                          
 #> 
 #> ## goal
@@ -463,15 +463,15 @@ pd$get_config()
 #> 
 #> ## r_versions
 #> <default>
-#> [1] "4.6.1"
+#> [1] "4.6.2"
 #> 
 #> ## cache_dir
 #> <default>
-#> [1] "/tmp/Rtmpp6hFST/file23512ab50212"
+#> [1] "/tmp/RtmpHilDeL/file23cb5ea87402"
 #> 
 #> ## library
 #> <set>
-#> [1] "/tmp/Rtmpp6hFST/file23511a03650f"
+#> [1] "/tmp/RtmpHilDeL/file23cb46e4d0d3"
 #> 
 #> ## ignore_dev_library
 #> <default>
@@ -527,7 +527,7 @@ pd$get_config()
 #> 
 #> ## sysreqs_platform
 #> <default>
-#> [1] "x86_64-pc-linux-gnu-ubuntu-24.04"
+#> [1] "x86_64-pc-linux-gnu-ubuntu-26.04"
 #> 
 #> ## dependencies
 #> <default>
@@ -558,7 +558,7 @@ pd$get_config()
 pd <- new_pkg_deps("pak")
 pd$resolve()
 #> 
-#> ✔ Updated metadata database: 4.42 MB in 3 files.
+#> ✔ Updated metadata database: 4.53 MB in 3 files.
 #> 
 #> ℹ Updating metadata database
 #> ✔ Updating metadata database ... done
@@ -586,7 +586,7 @@ pd$get_resolution()
 #>  1 r-lib/pkgdepe… gith… TRUE   TRUE      OK     pkgdep… 0.9.1.… MIT + …
 #>  2 callr          stan… FALSE  FALSE     OK     callr   3.8.0   MIT + …
 #>  3 cli            stan… FALSE  FALSE     OK     cli     3.6.6   MIT + …
-#>  4 curl           stan… FALSE  FALSE     OK     curl    8.0.0   MIT + …
+#>  4 curl           stan… FALSE  FALSE     OK     curl    8.1.0   MIT + …
 #>  5 desc           stan… FALSE  FALSE     OK     desc    1.4.3   MIT + …
 #>  6 filelock       stan… FALSE  FALSE     OK     filelo… 1.0.3   MIT + …
 #>  7 jsonlite       stan… FALSE  FALSE     OK     jsonli… 2.0.0   MIT + …

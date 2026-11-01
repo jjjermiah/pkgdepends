@@ -735,7 +735,7 @@ pdi
 pdi <- new_pkg_installation_proposal(
   "r-lib/pkgdepends",
   config = list(library = tempfile()))
-#> ℹ Creating library directory: /tmp/Rtmpp6hFST/file23515c412ffc
+#> ℹ Creating library directory: /tmp/RtmpHilDeL/file23cb2e15dfcd
 pdi
 #> <pkg_installation_proposal>
 #> + refs:
@@ -749,7 +749,7 @@ pdi <- new_pkg_installation_proposal(
   "pak",
   config = list(library = tempfile())
 )
-#> ℹ Creating library directory: /tmp/Rtmpp6hFST/file2351549731d4
+#> ℹ Creating library directory: /tmp/RtmpHilDeL/file23cb3425d3e
 pdi$get_config()
 #> # pkg config
 #> ## build_vignettes
@@ -766,7 +766,7 @@ pdi$get_config()
 #> 
 #> ## metadata_cache_dir
 #> <default>
-#> [1] "/tmp/Rtmpp6hFST/file23515ab486ee"
+#> [1] "/tmp/RtmpHilDeL/file23cb1fbbe455"
 #> 
 #> ## configure_args
 #> <default>
@@ -774,7 +774,7 @@ pdi$get_config()
 #> 
 #> ## platforms
 #> <default>
-#> [1] "x86_64-pc-linux-gnu-ubuntu-24.04"
+#> [1] "x86_64-pc-linux-gnu-ubuntu-26.04"
 #> [2] "source"                          
 #> 
 #> ## goal
@@ -783,15 +783,15 @@ pdi$get_config()
 #> 
 #> ## r_versions
 #> <default>
-#> [1] "4.6.1"
+#> [1] "4.6.2"
 #> 
 #> ## cache_dir
 #> <default>
-#> [1] "/tmp/Rtmpp6hFST/file23512ab50212"
+#> [1] "/tmp/RtmpHilDeL/file23cb5ea87402"
 #> 
 #> ## library
 #> <set>
-#> [1] "/tmp/Rtmpp6hFST/file2351549731d4"
+#> [1] "/tmp/RtmpHilDeL/file23cb3425d3e"
 #> 
 #> ## ignore_dev_library
 #> <default>
@@ -847,7 +847,7 @@ pdi$get_config()
 #> 
 #> ## sysreqs_platform
 #> <default>
-#> [1] "x86_64-pc-linux-gnu-ubuntu-24.04"
+#> [1] "x86_64-pc-linux-gnu-ubuntu-26.04"
 #> 
 #> ## dependencies
 #> <default>
@@ -878,7 +878,7 @@ pdi <- new_pkg_installation_proposal(
   "r-lib/pkgdepends",
   config = list(library = tempfile())
 )
-#> ℹ Creating library directory: /tmp/Rtmpp6hFST/file23515bee2dfe
+#> ℹ Creating library directory: /tmp/RtmpHilDeL/file23cb2fc9db7a
 pdi$get_solve_policy()
 #> [1] "lazy"
 pdi$set_solve_policy("upgrade")
@@ -888,7 +888,7 @@ pdi <- new_pkg_installation_proposal(
   "r-lib/pkgdepends",
   config = list(library = tempfile())
 )
-#> ℹ Creating library directory: /tmp/Rtmpp6hFST/file23512834aae9
+#> ℹ Creating library directory: /tmp/RtmpHilDeL/file23cb9e65092
 pdi$get_solve_policy()
 #> [1] "lazy"
 pdi$set_solve_policy("upgrade")
@@ -899,7 +899,7 @@ pdi <- new_pkg_installation_proposal(
   "pak",
   config = list(library = tempfile())
 )
-#> ℹ Creating library directory: /tmp/Rtmpp6hFST/file235118e6305a
+#> ℹ Creating library directory: /tmp/RtmpHilDeL/file23cb67393b15
 pdi
 #> <pkg_installation_proposal>
 #> + refs:
@@ -930,7 +930,7 @@ pdi
 
 pdi$download()
 #> ℹ Getting 1 pkg with unknown size
-#> ✔ Got pak 0.11.1 (x86_64-pc-linux-gnu-ubuntu-24.04) (7.91 MB)
+#> ✔ Got pak 0.11.1 (x86_64-pc-linux-gnu-ubuntu-26.04) (7.99 MB)
 pdi
 #> <pkg_installation_proposal>
 #> + refs:
