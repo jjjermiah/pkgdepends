@@ -360,7 +360,7 @@ pdl$get_config()
 #> 
 #> ## metadata_cache_dir
 #> <default>
-#> [1] "/tmp/RtmpOkBkFx/file1d787fe94397"
+#> [1] "/tmp/RtmpMfXHi7/file234364a8abf0"
 #> 
 #> ## configure_args
 #> <default>
@@ -381,11 +381,11 @@ pdl$get_config()
 #> 
 #> ## cache_dir
 #> <default>
-#> [1] "/tmp/RtmpOkBkFx/file1d7866c79b83"
+#> [1] "/tmp/RtmpMfXHi7/file23432f8fa99d"
 #> 
 #> ## library
 #> <set>
-#> [1] "/tmp/RtmpOkBkFx/file1d784df6cc50"
+#> [1] "/tmp/RtmpMfXHi7/file23433f61d73c"
 #> 
 #> ## ignore_dev_library
 #> <default>
@@ -475,8 +475,8 @@ pdl$get_resolution()
 #> # A data frame: 2 × 35
 #>   ref   type     direct directpkg status package version license
 #>   <chr> <chr>    <lgl>  <lgl>     <chr>  <chr>   <chr>   <chr>  
-#> 1 pak   standard TRUE   TRUE      OK     pak     0.11.1  GPL-3  
-#> 2 pak   standard TRUE   TRUE      OK     pak     0.11.1  GPL-3  
+#> 1 pak   standard TRUE   TRUE      OK     pak     0.11.2  GPL-3  
+#> 2 pak   standard TRUE   TRUE      OK     pak     0.11.2  GPL-3  
 #> # ℹ 27 more variables: needscompilation <lgl>, priority <chr>,
 #> #   md5sum <chr>, sha256 <chr>, filesize <int>, built <chr>,
 #> #   platform <chr>, rversion <chr>, repotype <chr>, repodir <chr>,
@@ -499,7 +499,7 @@ pdl$get_resolution()
 #>  6 filelock       stan… FALSE  FALSE     OK     filelo… 1.0.3   MIT + …
 #>  7 jsonlite       stan… FALSE  FALSE     OK     jsonli… 2.0.0   MIT + …
 #>  8 lpSolve        stan… FALSE  FALSE     OK     lpSolve 5.6.23  LGPL-2 
-#>  9 otel           stan… FALSE  FALSE     OK     otel    0.2.0   MIT + …
+#>  9 otel           stan… FALSE  FALSE     OK     otel    0.3.0   MIT + …
 #> 10 pkgbuild       stan… FALSE  FALSE     OK     pkgbui… 1.4.8   MIT + …
 #> # ℹ 20 more rows
 #> # ℹ 27 more variables: needscompilation <lgl>, priority <chr>,
@@ -512,34 +512,34 @@ pdl$get_resolution()
 pdl <- new_pkg_download_proposal("r-lib/pkgdepends")
 pdl$resolve()
 pdl$download()
-#> ℹ Getting 13 pkgs (4.11 MB) and 17 pkgs with unknown sizes
+#> ℹ Getting 13 pkgs (4.12 MB) and 17 pkgs with unknown sizes
 #> ✔ Got callr 3.8.0 (source) (113.26 kB)
-#> ✔ Got curl 8.1.0 (source) (730.86 kB)
 #> ✔ Got cli 3.6.6 (source) (644.13 kB)
+#> ✔ Got curl 8.1.0 (source) (730.86 kB)
 #> ✔ Got desc 1.4.3 (source) (80.07 kB)
 #> ✔ Got filelock 1.0.3 (source) (15.44 kB)
+#> ✔ Got pkgbuild 1.4.8 (source) (51.30 kB)
+#> ✔ Got otel 0.3.0 (source) (81.53 kB)
+#> ✔ Got lpSolve 5.6.23 (source) (467.59 kB)
+#> ✔ Got jsonlite 2.0.0 (source) (1.06 MB)
 #> ✔ Got filelock 1.0.3 (x86_64-pc-linux-gnu-ubuntu-26.04) (29.61 kB)
 #> ✔ Got desc 1.4.3 (x86_64-pc-linux-gnu-ubuntu-26.04) (341.10 kB)
-#> ✔ Got lpSolve 5.6.23 (x86_64-pc-linux-gnu-ubuntu-26.04) (381.31 kB)
-#> ✔ Got lpSolve 5.6.23 (source) (467.59 kB)
-#> ✔ Got callr 3.8.0 (x86_64-pc-linux-gnu-ubuntu-26.04) (480.38 kB)
-#> ✔ Got otel 0.2.0 (x86_64-pc-linux-gnu-ubuntu-26.04) (283.38 kB)
-#> ✔ Got pkgbuild 1.4.8 (x86_64-pc-linux-gnu-ubuntu-26.04) (212.76 kB)
-#> ✔ Got tstoml 0.0.0.9000 (source) (176.46 kB)
-#> ✔ Got otel 0.2.0 (source) (72.58 kB)
-#> ✔ Got R6 2.6.1 (x86_64-pc-linux-gnu-ubuntu-26.04) (90.04 kB)
-#> ✔ Got processx 3.9.0 (x86_64-pc-linux-gnu-ubuntu-26.04) (412.79 kB)
-#> ✔ Got pkgbuild 1.4.8 (source) (51.30 kB)
 #> ✔ Got curl 8.1.0 (x86_64-pc-linux-gnu-ubuntu-26.04) (797.84 kB)
-#> ✔ Got ps 1.9.3 (x86_64-pc-linux-gnu-ubuntu-26.04) (516.61 kB)
-#> ✔ Got processx 3.9.0 (source) (195.28 kB)
-#> ✔ Got jsonlite 2.0.0 (source) (1.06 MB)
+#> ✔ Got cli 3.6.6 (x86_64-pc-linux-gnu-ubuntu-26.04) (1.35 MB)
+#> ✔ Got lpSolve 5.6.23 (x86_64-pc-linux-gnu-ubuntu-26.04) (381.31 kB)
+#> ✔ Got callr 3.8.0 (x86_64-pc-linux-gnu-ubuntu-26.04) (480.38 kB)
+#> ✔ Got otel 0.3.0 (x86_64-pc-linux-gnu-ubuntu-26.04) (302.18 kB)
+#> ✔ Got R6 2.6.1 (x86_64-pc-linux-gnu-ubuntu-26.04) (90.04 kB)
 #> ✔ Got R6 2.6.1 (source) (64.51 kB)
+#> ✔ Got pkgbuild 1.4.8 (x86_64-pc-linux-gnu-ubuntu-26.04) (212.76 kB)
+#> ✔ Got processx 3.9.0 (x86_64-pc-linux-gnu-ubuntu-26.04) (412.79 kB)
+#> ✔ Got ps 1.9.3 (x86_64-pc-linux-gnu-ubuntu-26.04) (516.61 kB)
+#> ✔ Got tstoml 0.0.0.9000 (source) (176.46 kB)
+#> ✔ Got processx 3.9.0 (source) (195.28 kB)
 #> ✔ Got ps 1.9.3 (source) (172.43 kB)
+#> ✔ Got zip 3.0.2 (source) (446.55 kB)
 #> ✔ Got zip 3.0.2 (x86_64-pc-linux-gnu-ubuntu-26.04) (991.99 kB)
 #> ✔ Got jsonlite 2.0.0 (x86_64-pc-linux-gnu-ubuntu-26.04) (1.09 MB)
-#> ✔ Got zip 3.0.2 (source) (446.55 kB)
-#> ✔ Got cli 3.6.6 (x86_64-pc-linux-gnu-ubuntu-26.04) (1.35 MB)
 #> ✔ Got tsitter 0.2.0.9000 (source) (394.09 kB)
 #> ✔ Got pkgcache 2.2.5.9000 (source) (472.13 kB)
 #> ✔ Got pkgdepends 0.9.1.9000 (source) (1.77 MB)
@@ -555,7 +555,7 @@ pdl$get_downloads()
 #>  6 filelock       stan… FALSE  FALSE     OK     filelo… 1.0.3   MIT + …
 #>  7 jsonlite       stan… FALSE  FALSE     OK     jsonli… 2.0.0   MIT + …
 #>  8 lpSolve        stan… FALSE  FALSE     OK     lpSolve 5.6.23  LGPL-2 
-#>  9 otel           stan… FALSE  FALSE     OK     otel    0.2.0   MIT + …
+#>  9 otel           stan… FALSE  FALSE     OK     otel    0.3.0   MIT + …
 #> 10 pkgbuild       stan… FALSE  FALSE     OK     pkgbui… 1.4.8   MIT + …
 #> # ℹ 20 more rows
 #> # ℹ 33 more variables: needscompilation <lgl>, priority <chr>,
@@ -568,24 +568,24 @@ pdl$get_downloads()
 pdl <- new_pkg_download_proposal("pkgload")
 pdl$resolve()
 pdl$download()
-#> ℹ Getting 6 pkgs (2.64 MB) and 14 pkgs with unknown sizes, 8 (1.39 MB) cached
+#> ℹ Getting 6 pkgs (2.64 MB) and 14 pkgs with unknown sizes, 8 (1.40 MB) cached
 #> ✔ Got lifecycle 1.0.5 (source) (107.14 kB)
 #> ✔ Got glue 1.8.1 (source) (129.79 kB)
 #> ✔ Got fs 2.1.0 (source) (1.47 MB)
-#> ✔ Got fs 2.1.0 (x86_64-pc-linux-gnu-ubuntu-26.04) (246.52 kB)
-#> ✔ Got lifecycle 1.0.5 (x86_64-pc-linux-gnu-ubuntu-26.04) (135.29 kB)
 #> ✔ Got pkgload 1.5.3 (source) (89.07 kB)
+#> ✔ Got rprojroot 2.1.1 (source) (59.90 kB)
 #> ✔ Cached copy of callr 3.8.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
 #> ✔ Cached copy of cli 3.6.6 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
-#> ✔ Got glue 1.8.1 (x86_64-pc-linux-gnu-ubuntu-26.04) (178.61 kB)
 #> ✔ Cached copy of desc 1.4.3 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
-#> ✔ Cached copy of otel 0.2.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
+#> ✔ Cached copy of otel 0.3.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
 #> ✔ Cached copy of pkgbuild 1.4.8 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
+#> ✔ Got glue 1.8.1 (x86_64-pc-linux-gnu-ubuntu-26.04) (178.61 kB)
+#> ✔ Got lifecycle 1.0.5 (x86_64-pc-linux-gnu-ubuntu-26.04) (135.29 kB)
 #> ✔ Cached copy of processx 3.9.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
 #> ✔ Cached copy of ps 1.9.3 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
-#> ✔ Cached copy of R6 2.6.1 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
+#> ✔ Got fs 2.1.0 (x86_64-pc-linux-gnu-ubuntu-26.04) (246.52 kB)
 #> ✔ Got pkgload 1.5.3 (x86_64-pc-linux-gnu-ubuntu-26.04) (227.86 kB)
-#> ✔ Got rprojroot 2.1.1 (source) (59.90 kB)
+#> ✔ Cached copy of R6 2.6.1 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
 #> ✔ Got rlang 1.3.0 (source) (784.08 kB)
 #> ✔ Got rprojroot 2.1.1 (x86_64-pc-linux-gnu-ubuntu-26.04) (117.17 kB)
 #> ✔ Got rlang 1.3.0 (x86_64-pc-linux-gnu-ubuntu-26.04) (1.62 MB)
@@ -599,7 +599,7 @@ pdl$get_downloads()
 #>  4 fs        standard FALSE  FALSE     OK     fs        2.1.0   MIT + …
 #>  5 glue      standard FALSE  FALSE     OK     glue      1.8.1   MIT + …
 #>  6 lifecycle standard FALSE  FALSE     OK     lifecycle 1.0.5   MIT + …
-#>  7 otel      standard FALSE  FALSE     OK     otel      0.2.0   MIT + …
+#>  7 otel      standard FALSE  FALSE     OK     otel      0.3.0   MIT + …
 #>  8 pkgbuild  standard FALSE  FALSE     OK     pkgbuild  1.4.8   MIT + …
 #>  9 pkgload   standard TRUE   TRUE      OK     pkgload   1.5.3   MIT + …
 #> 10 processx  standard FALSE  FALSE     OK     processx  3.9.0   MIT + …
@@ -628,20 +628,20 @@ pdl
 #> (use `$get_resolution()` to see resolution results)
 
 pdl$download()
-#> ℹ Getting 17 pkgs with unknown sizes, 13 (4.11 MB) cached
+#> ℹ Getting 17 pkgs with unknown sizes, 13 (4.12 MB) cached
 #> ✔ Cached copy of pkgdepends 0.9.1.9000 (source) is the latest build
 #> ✔ Cached copy of pkgcache 2.2.5.9000 (source) is the latest build
 #> ✔ Cached copy of tstoml 0.0.0.9000 (source) is the latest build
 #> ✔ Cached copy of tsitter 0.2.0.9000 (source) is the latest build
-#> ✔ Cached copy of callr 3.8.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
-#> ✔ Cached copy of curl 8.1.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
-#> ✔ Cached copy of jsonlite 2.0.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
 #> ✔ Cached copy of cli 3.6.6 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
-#> ✔ Cached copy of desc 1.4.3 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
 #> ✔ Cached copy of filelock 1.0.3 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
-#> ✔ Cached copy of lpSolve 5.6.23 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
-#> ✔ Cached copy of otel 0.2.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
+#> ✔ Cached copy of jsonlite 2.0.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
 #> ✔ Cached copy of pkgbuild 1.4.8 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
+#> ✔ Cached copy of callr 3.8.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
+#> ✔ Cached copy of desc 1.4.3 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
+#> ✔ Cached copy of lpSolve 5.6.23 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
+#> ✔ Cached copy of curl 8.1.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
+#> ✔ Cached copy of otel 0.3.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
 #> ✔ Cached copy of processx 3.9.0 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
 #> ✔ Cached copy of ps 1.9.3 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build
 #> ✔ Cached copy of R6 2.6.1 (x86_64-pc-linux-gnu-ubuntu-26.04) is the latest build

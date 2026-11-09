@@ -77,11 +77,11 @@ pd$draw()
 ```
 
 
-    ## ✔ Updated metadata database: 3.86 MB in 8 files.
+    ## ✔ Updated metadata database: 3.87 MB in 8 files.
     ## ✔ Updating metadata database ... done
     ## r-lib/pkgcache 2.2.5.9000 [new][bld][cmp][dl] (unknown size)
     ## ├─callr 3.8.0 [new][bld][dl] (113.26 kB)
-    ## │ ├─otel 0.2.0 [new][bld][dl] (72.58 kB)
+    ## │ ├─otel 0.3.0 [new][bld][dl] (81.53 kB)
     ## │ ├─processx 3.9.0 [new][bld][cmp][dl] (195.28 kB)
     ## │ │ ├─ps 1.9.3 [new][bld][cmp][dl] (172.43 kB)
     ## │ │ └─R6 2.6.1 [new][bld][dl] (64.51 kB)
@@ -112,7 +112,7 @@ pdl$download()
 
 
     ## ℹ Getting 1 pkg with unknown size
-    ## ✔ Got cli 3.6.6.9000 (source) (1.16 MB)
+    ## ✔ Got cli 3.6.6.9000 (source) (1.17 MB)
 
 See the
 [`pkg_download_proposal`](https://r-lib.github.io/pkgdepends/reference/pkg_download_proposal.html)
@@ -139,11 +139,11 @@ pdi$install()
     ## ℹ Getting 1 pkg with unknown size
     ## ✔ Cached copy of cli 3.6.6.9000 (source) is the latest build
     ## ℹ Packaging cli 3.6.6.9000
-    ## ✔ Packaged cli 3.6.6.9000 (1.8s)
+    ## ✔ Packaged cli 3.6.6.9000 (1.1s)
     ## ℹ Building cli 3.6.6.9000
-    ## ✔ Built cli 3.6.6.9000 (10.5s)
-    ## ✔ Installed cli 3.6.6.9000 (github::r-lib/cli@633bc27) (1s)
-    ## ✔ Summary:   1 new  in 11.5s
+    ## ✔ Built cli 3.6.6.9000 (6.9s)
+    ## ✔ Installed cli 3.6.6.9000 (github::r-lib/cli@ceadbfd) (1s)
+    ## ✔ Summary:   1 new  in 7.9s
 
 ## Dependency resolution
 
